@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+/* blah blah blah*/
+
 namespace MobileInfo.Controllers
 {
     public class HomeController : Controller
