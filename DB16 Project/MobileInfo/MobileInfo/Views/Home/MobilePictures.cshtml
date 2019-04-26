@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MobileInfo.Models.Picture>
+
+@{
+    ViewBag.Title = "MobilePictures";
+}
+
+<h2>MobilePictures</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+
+@foreach (var item in Model)
+{
+    if (item.MobileId == @ViewBag.linkableId)
+    {
+        <div class="container h-100 d-flex justify-content-center">
+            <div class="Images">
+                <img src="@Url.Content(item.Image)" height="250" width="350" />
+            </div>
+        </div>
+        <br />
+        <br />
+    }
+
+}
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

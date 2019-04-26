@@ -548,6 +548,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\blah.cshtml" />
+    <Content Include="Views\Home\BrandMobiles.cshtml" />
+    <Content Include="Views\Home\GiveReview.cshtml" />
+    <Content Include="Views\Home\MobileDetails.cshtml" />
+    <Content Include="Views\Home\MobilePictures.cshtml" />
+    <Content Include="Views\Home\MobileReviews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

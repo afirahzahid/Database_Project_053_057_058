@@ -2,14 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+
 
 namespace MobileInfo.Controllers
 {
     public class HomeController : Controller
     {
-        
+
+        private DB16Entities db = new DB16Entities();
 
         public ActionResult Index()
         {
@@ -37,25 +41,92 @@ namespace MobileInfo.Controllers
 
             return View();
         }
-    }
 
-    //<img src = "@Url.Content(item.Image)" height="100" width="100" />
-/*
- *<div class="container">
-
-        @foreach (var item in Model)
+        public ActionResult BrandMobiles(int? id)
         {
-            <div class= "col-md-3" style="margin-bottom:25px">
-                <div class="thumbnail">
-                    <div class="Images">
-                        <img class="img-responsive" src="~@item.Image" height="350" width="250" /> 
-                    </div>
-                    <div class="caption" style=" border-top: 3px solid" >
-                        <h3> @item.Name</h3>
-                        <h4> @item.Country</h4>
-                    </div>
-                </div>
-            </div>
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewBag.linkableId = id;
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
         }
-    </div>*/
+
+
+        public ActionResult MobileDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewBag.linkableId = id;
+            Mobile mobile = db.Mobiles.Find(id);
+            if (mobile == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(mobile);
+        }
+
+
+        public ActionResult MobilePictures(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewBag.linkableId = id;
+            var entities = new DB16Entities();
+            return View(entities.Pictures.ToList());
+        }
+
+
+        public ActionResult MobileReviews(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewBag.linkableId = id;
+            var entities = new DB16Entities();
+            return View(entities.Reviews.ToList());
+        }
+
+
+        [HttpGet]
+        public ActionResult GiveReview(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewBag.linkableId = id;
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GiveReview(Review r, int? idp)
+        {
+            if (ModelState.IsValid)
+            {
+                r.MobileId = (int)idp;
+                db.Reviews.Add(r);
+                db.SaveChanges();
+                ModelState.Clear();
+                r = null;
+                ViewBag.Message = "Submitted";
+                return RedirectToAction("MobileDetails", "Home", new { id = idp });
+            }
+            return View(r);
+        }
+    }
 }
