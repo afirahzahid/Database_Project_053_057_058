@@ -5,8 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+<<<<<<< HEAD
 using System.Data.Entity;
 
+=======
+using MobileInfo.Models;
+/* blah blah blah*/
+>>>>>>> bda24a75fcff2e0582c28a41f01fa49fe91b18f0
 
 namespace MobileInfo.Controllers
 {

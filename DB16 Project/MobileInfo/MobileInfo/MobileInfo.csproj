@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -472,6 +473,46 @@
     <Content Include="homephotos\nokia-logo-1080x675.jpg" />
     <Content Include="homephotos\unnamed.jpg" />
     <Content Include="homephotos\wp2611756.jpg" />
+    <Content Include="images\avds_large.jpg" />
+    <Content Include="images\avds_small.jpg" />
+    <Content Include="images\avds_xl.jpg" />
+    <Content Include="images\cart.jpg" />
+    <Content Include="images\cart_1.jpg" />
+    <Content Include="images\categories.jpg" />
+    <Content Include="images\check.png" />
+    <Content Include="images\contact.jpg" />
+    <Content Include="images\details_1.jpg" />
+    <Content Include="images\details_2.jpg" />
+    <Content Include="images\details_3.jpg" />
+    <Content Include="images\details_4.jpg" />
+    <Content Include="images\discount.png" />
+    <Content Include="images\down.png" />
+    <Content Include="images\footer.jpg" />
+    <Content Include="images\home_slider_1.jpg" />
+    <Content Include="images\icon_1.svg" />
+    <Content Include="images\icon_2.svg" />
+    <Content Include="images\icon_3.svg" />
+    <Content Include="images\product_1.jpg" />
+    <Content Include="images\product_10.jpg" />
+    <Content Include="images\product_11.jpg" />
+    <Content Include="images\product_12.jpg" />
+    <Content Include="images\product_2.jpg" />
+    <Content Include="images\product_3.jpg" />
+    <Content Include="images\product_4.jpg" />
+    <Content Include="images\product_5.jpg" />
+    <Content Include="images\product_6.jpg" />
+    <Content Include="images\product_7.jpg" />
+    <Content Include="images\product_8.jpg" />
+    <Content Include="images\product_9.jpg" />
+    <Content Include="images\search.svg" />
+    <Content Include="images\shopping.svg" />
+    <Content Include="js\cart.js" />
+    <Content Include="js\categories.js" />
+    <Content Include="js\checkout.js" />
+    <Content Include="js\contact.js" />
+    <Content Include="js\custom.js" />
+    <Content Include="js\jquery-3.2.1.min.js" />
+    <Content Include="js\product.js" />
     <Content Include="Models\MobileViewModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MobileViewModel.Context.cs</LastGenOutput>
@@ -482,6 +523,24 @@
       <DependentUpon>MobileViewModel.edmx</DependentUpon>
       <LastGenOutput>MobileViewModel.cs</LastGenOutput>
     </Content>
+    <Content Include="plugins\easing\easing.js" />
+    <Content Include="plugins\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="plugins\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="plugins\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="plugins\greensock\animation.gsap.min.js" />
+    <Content Include="plugins\greensock\ScrollToPlugin.min.js" />
+    <Content Include="plugins\greensock\TimelineMax.min.js" />
+    <Content Include="plugins\greensock\TweenMax.min.js" />
+    <Content Include="plugins\Isotope\isotope.pkgd.min.js" />
+    <Content Include="plugins\OwlCarousel2-2.2.1\ajax-loader.gif" />
+    <Content Include="plugins\OwlCarousel2-2.2.1\animate.css" />
+    <Content Include="plugins\OwlCarousel2-2.2.1\owl.carousel.css" />
+    <Content Include="plugins\OwlCarousel2-2.2.1\owl.carousel.js" />
+    <Content Include="plugins\OwlCarousel2-2.2.1\owl.theme.default.css" />
+    <Content Include="plugins\OwlCarousel2-2.2.1\owl.video.play.png" />
+    <Content Include="plugins\parallax-js-master\parallax.min.js" />
+    <Content Include="plugins\scrollmagic\ScrollMagic.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="assets\custom\fonts\fables.eot" />
@@ -522,6 +581,39 @@
     <Content Include="Models\MobileViewModel.edmx.diagram">
       <DependentUpon>MobileViewModel.edmx</DependentUpon>
     </Content>
+    <Content Include="plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="plugins\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="plugins\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\core.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\list.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\path.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="plugins\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="plugins\font-awesome-4.7.0\scss\_variables.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -533,6 +625,21 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="styles\bootstrap4\bootstrap.min.css" />
+    <Content Include="styles\bootstrap4\bootstrap.min.js" />
+    <Content Include="styles\bootstrap4\popper.js" />
+    <Content Include="styles\cart.css" />
+    <Content Include="styles\cart_responsive.css" />
+    <Content Include="styles\categories.css" />
+    <Content Include="styles\categories_responsive.css" />
+    <Content Include="styles\checkout.css" />
+    <Content Include="styles\checkout_responsive.css" />
+    <Content Include="styles\contact.css" />
+    <Content Include="styles\contact_responsive.css" />
+    <Content Include="styles\main_styles.css" />
+    <Content Include="styles\product.css" />
+    <Content Include="styles\product_responsive.css" />
+    <Content Include="styles\responsive.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -556,6 +663,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
