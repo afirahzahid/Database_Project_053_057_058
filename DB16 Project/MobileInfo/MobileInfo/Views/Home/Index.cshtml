@@ -19,7 +19,7 @@
                     <img src="@Url.Content(item.Image)" height="150" width="150" />
                 </div>
                 <div class="caption" style=" border-top: 3px solid">
-                    <h3> @item.Name</h3>
+                    <h3> @Html.ActionLink(@item.Name, "BrandMobiles", new { id = item.Id }) </h3>
                     <h4> @item.Country</h4>
                 </div>
             </div>

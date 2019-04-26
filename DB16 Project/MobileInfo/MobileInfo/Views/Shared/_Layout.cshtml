@@ -44,13 +44,14 @@
                                             </ul>
                                         </li>
                                         <li class="hassubs">
-                                            <a href="~/categories.html">Categories</a>
+                                            <a href="~/categories.html">Search By</a>
                                             <ul>
-                                                <li><a href="~/categories.html">Category</a></li>
-                                                <li><a href="~/categories.html">Category</a></li>
-                                                <li><a href="~/categories.html">Category</a></li>
-                                                <li><a href="~/categories.html">Category</a></li>
-                                                <li><a href="~/categories.html">Category</a></li>
+                                                <li><a @Html.ActionLink("Price Greater than 50k", "Price50000", "Filters")</a></li>
+                                                <li><a @Html.ActionLink("Screen 3-4 inches", "Screen3to4", "Filters")</a></li>
+                                                <li><a @Html.ActionLink("RAM 4GB", "RAM4GB", "Filters")</a></li>
+                                                <li><a href="~/categories.html">Camera</a></li>
+                                                <li><a href="~/categories.html">Release Date</a></li>
+                                                
                                             </ul>
                                         </li>
                                         <li><a href="~/#">Accessories</a></li>
@@ -390,8 +391,6 @@
             </div>
         </div>
 
-
-        <p> @Html.ActionLink("blah", "blah") </p>
 
         <!-- Footer -->
 

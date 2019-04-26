@@ -161,8 +161,8 @@ C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\bin\Antlr3.Run
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.csprojAssemblyReference.cache
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.csproj.CoreCompileInputs.cache
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.csproj.CopyComplete
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.dll
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.pdb
+C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.csprojAssemblyReference.cache
