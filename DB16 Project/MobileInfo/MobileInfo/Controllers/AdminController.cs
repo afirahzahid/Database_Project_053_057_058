@@ -53,5 +53,273 @@ namespace MobileInfo.Controllers
 			return View();
 		}
 
+		[HttpGet]
+		public ActionResult RegisterBrand()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public ActionResult RegisterBrand(Brand obj)
+		{
+			string fileName = Path.GetFileNameWithoutExtension(obj.ImageFile.FileName);
+			string extension = Path.GetExtension(obj.ImageFile.FileName);
+			fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+			obj.Image = "~/Image/" + fileName;
+			fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+			obj.ImageFile.SaveAs(fileName);
+			using (DB16Entities db = new DB16Entities())
+			{
+				db.Brands.Add(obj);
+				db.SaveChanges();
+				ModelState.Clear();
+				obj = null;
+	
+				ViewBag.Message = "Registered Successful";
+				return RedirectToAction("RegisterBrand");
+			}
+		}
+
+
+		[HttpGet]
+		public ActionResult Edit(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Brand s = db.Brands.SingleOrDefault(x => x.Id == id);
+			if (s == null)
+			{
+				return HttpNotFound();
+			}
+			return View(s);
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult Edit(Brand obj)
+		{
+			string fileName = Path.GetFileNameWithoutExtension(obj.ImageFile.FileName);
+			string extension = Path.GetExtension(obj.ImageFile.FileName);
+			fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+			obj.Image = "~/Image/" + fileName;
+			fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+			obj.ImageFile.SaveAs(fileName);
+			db.Entry(obj).State = EntityState.Modified;
+			db.SaveChanges();
+			return RedirectToAction("BIndex");
+
+		}
+
+		public ActionResult BDelete(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Brand user = db.Brands.Find(id);
+			if (user == null)
+			{
+				return HttpNotFound();
+			}
+			return View(user);
+		}
+
+		[HttpPost, ActionName("BDelete")]
+		[ValidateAntiForgeryToken]
+		public ActionResult BDeleteConfirmed(int id)
+		{
+			string que = "SELECT Id From Mobile WHERE BrandId = '" + id + "'";
+			if (con1.State == System.Data.ConnectionState.Closed)
+			{
+				con1.Open();
+			}
+			SqlCommand cmd = new SqlCommand(que, con1);
+			SqlDataReader reader = cmd.ExecuteReader();
+			List<Int32> list1 = new List<Int32>();
+			int v = 0;
+			int z = 0;
+			int i = 0;
+			while (reader.Read())
+			{
+				v = Int32.Parse(reader[0].ToString());
+				int a = v;
+				db.Pictures.Where(x => x.MobileId == a).ToList().ForEach(x => db.Pictures.Remove(x));
+				int b = v;
+				db.Mobiles.Where(x => x.Id == b).ToList().ForEach(x => db.Mobiles.Remove(x));
+				i++;
+			}
+			Brand user = db.Brands.Find(id);
+			db.Brands.Remove(user);
+			db.SaveChanges();
+			return RedirectToAction("BIndex");
+		}
+
+		public ActionResult BDetails(int? id)
+		{
+			Brand b = new Brand();
+			using (DB16Entities db = new DB16Entities())
+			{
+				b = db.Brands.Where(x => x.Id == id).FirstOrDefault();
+			}
+			return View(b);
+		}
+
+//********************************************* Mobile ***********************************************//
+		public ActionResult MIndex()
+		{
+			using (DB16Entities db = new DB16Entities())
+			{
+				return View(db.Mobiles.ToList());
+			}
+
+		}
+
+		[HttpGet]
+		public ActionResult RegisterMobile(int id = 0)
+		{
+			ViewBag.BrandId = new SelectList(db.Brands, "Id", "Name");
+			return View();
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult RegisterMobile(Mobile obj)
+		{
+			string fileName = Path.GetFileNameWithoutExtension(obj.ImageFile1.FileName);
+			string extension = Path.GetExtension(obj.ImageFile1.FileName);
+			fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+			obj.Picture = "~/Image/" + fileName;
+			fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+			obj.ImageFile1.SaveAs(fileName);
+			using (DB16Entities db = new DB16Entities())
+			{
+				db.Mobiles.Add(obj);
+				db.SaveChanges();
+				ModelState.Clear();
+				obj = null;
+
+				TempData["msg"] = "<script>alert('Register successfully');</script>";
+				return RedirectToAction("RegisterMobile");
+			}
+		}
+
+		public ActionResult MEdit(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Mobile s = db.Mobiles.Find(id);
+			if (s == null)
+			{
+				return HttpNotFound();
+			}
+			ViewBag.BrandId = new SelectList(db.Brands, "Id", "Name", s.BrandId);
+			return View(s);
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult MEdit(Mobile obj)
+		{
+			string fileName = Path.GetFileNameWithoutExtension(obj.ImageFile1.FileName);
+			string extension = Path.GetExtension(obj.ImageFile1.FileName);
+			fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+			obj.Picture = "~/Image/" + fileName;
+			fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+			obj.ImageFile1.SaveAs(fileName);
+	
+
+
+			db.Entry(obj).State = EntityState.Modified;
+			db.SaveChanges();
+			return RedirectToAction("MIndex");
+		}
+
+		public ActionResult MDelete(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Mobile user = db.Mobiles.Find(id);
+			if (user == null)
+			{
+				return HttpNotFound();
+			}
+			return View(user);
+		}
+
+
+		[HttpPost, ActionName("MDelete")]
+		[ValidateAntiForgeryToken]
+		public ActionResult MDeleteConfirmed(int id)
+		{
+			string que = "SELECT Id From Pictures WHERE MobileId = '" + id + "'";
+			if (con1.State == System.Data.ConnectionState.Closed)
+			{
+				con1.Open();
+			}
+
+
+			SqlCommand cmd = new SqlCommand(que, con1);
+			SqlDataReader reader = cmd.ExecuteReader();
+			List<Int32> list1 = new List<Int32>();
+			int v = 0;
+			int z = 0;
+			int i = 0;
+			while (reader.Read())
+			{
+				v = Int32.Parse(reader[0].ToString());
+				int b = v;
+				db.Pictures.Where(x => x.Id == b).ToList().ForEach(x => db.Pictures.Remove(x));
+				i++;
+			}
+			Mobile m = db.Mobiles.Find(id);
+			db.Mobiles.Remove(m);
+			db.SaveChanges();
+			return RedirectToAction("MIndex");
+		}
+
+		public ActionResult MDetails(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Mobile m = db.Mobiles.Find(id);
+			return View(m);
+		}
+
+		// GET: Admin/Details/5
+		public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: Admin/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Admin/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
     }
 }
