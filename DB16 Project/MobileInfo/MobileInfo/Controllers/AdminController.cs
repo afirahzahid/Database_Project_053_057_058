@@ -298,28 +298,111 @@ namespace MobileInfo.Controllers
         {
             return View();
         }
+	
+//***************************************** Pictures ******************************************//
+		public ActionResult PIndex()
+		{
+			using (DB16Entities db = new DB16Entities())
+			{
+				return View(db.Pictures.ToList());
+			}
+		}
 
-        // GET: Admin/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+		[HttpGet]
+		public ActionResult RegisterPicture(int id = 0)
+		{
+			ViewBag.MobileId = new SelectList(db.Mobiles, "Id", "Name");
+			return View();
+		}
+		
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult RegisterPicture(Picture obj)
+		{
+			string fileName = Path.GetFileNameWithoutExtension(obj.ImageFile1.FileName);
+			string extension = Path.GetExtension(obj.ImageFile1.FileName);
+			fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+			obj.Image = "~/Image/" + fileName;
+			fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+			obj.ImageFile1.SaveAs(fileName);
+			using (DB16Entities db = new DB16Entities())
+			{
+				db.Pictures.Add(obj);
+				db.SaveChanges();
+				ModelState.Clear();
+				obj = null;
 
-        // POST: Admin/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
+				TempData["msg"] = "<script>alert('Register successfully');</script>";
+				return RedirectToAction("RegisterPicture");
+			}
+		}
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+		public ActionResult PEdit(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Picture s = db.Pictures.Find(id);
+			if (s == null)
+			{
+				return HttpNotFound();
+			}
+			ViewBag.MobileId = new SelectList(db.Mobiles, "Id", "Name", s.MobileId);
+			return View(s);
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult PEdit(Picture obj)
+		{
+			string fileName = Path.GetFileNameWithoutExtension(obj.ImageFile1.FileName);
+			string extension = Path.GetExtension(obj.ImageFile1.FileName);
+			fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+			obj.Image = "~/Image/" + fileName;
+			fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+			obj.ImageFile1.SaveAs(fileName);
+
+			db.Entry(obj).State = EntityState.Modified;
+			db.SaveChanges();
+			return RedirectToAction("PIndex");
+
+		}
+
+		public ActionResult PDelete(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Picture user = db.Pictures.Find(id);
+			if (user == null)
+			{
+				return HttpNotFound();
+			}
+			return View(user);
+		}
+
+
+		[HttpPost, ActionName("PDelete")]
+		[ValidateAntiForgeryToken]
+		public ActionResult PDeleteConfirmed(int id)
+		{		
+			Picture p = db.Pictures.Find(id);
+			db.Pictures.Remove(p);
+			db.SaveChanges();
+			return RedirectToAction("PIndex");
+		}
+
+		public ActionResult PDetails(int? id)
+		{
+			Picture p = new Picture();
+			using (DB16Entities db = new DB16Entities())
+			{
+				p = db.Pictures.Where(x => x.Id == id).FirstOrDefault();
+			}
+			return View(p);
+		}
 
     }
 }
