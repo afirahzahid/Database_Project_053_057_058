@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MobileInfo.Models.Mobile>
+
+<table class="table">
+	<div style="font-style:initial; font-size:20px ; color:mediumblue; padding-left: 5%; padding-top:1%"> @Html.ActionLink("Go Back", "ALoggedIn")</div>
+	<div style="font-style:initial; font-size:20px ; color:mediumblue; padding-left: 85%; padding-top:-1% "> @Html.ActionLink("Add new Mobile", "RegisterMobile")</div>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Name)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.SIM)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Colors)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Main_Camera)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Front_Camera)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Battery)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Price)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Announced_On)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Picture)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.SIM)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Colors)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Main_Camera)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Front_Camera)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Battery)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Price)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Announced_On)
+			</td>
+			<td>
+				<img src="@Url.Content(item.Picture)" height="150" width="150" />
+			</td>
+			<td>
+				@Html.ActionLink("Edit", "MEdit", new { id = item.Id }) |
+				@Html.ActionLink("Details", "MDetails", new { id = item.Id }) |
+				@Html.ActionLink("Delete", "MDelete", new { id = item.Id })
+			</td>
+		</tr>
+	}
+
+</table>
