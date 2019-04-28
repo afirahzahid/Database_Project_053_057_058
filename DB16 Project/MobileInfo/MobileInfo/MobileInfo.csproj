@@ -134,7 +134,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\FiltersController.cs" />
+=======
+    <Compile Include="Controllers\AdminController.cs" />
+>>>>>>> b7679b904f17a59248ca758e8600f917cdc494ae
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -666,6 +670,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\blah.cshtml" />
     <Content Include="Views\Home\BrandMobiles.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\MobileDetails.cshtml" />
     <Content Include="Views\Home\MobilePictures.cshtml" />
     <Content Include="Views\Home\GiveReview.cshtml" />
@@ -674,9 +679,16 @@
     <Content Include="Views\Filters\Screen3to4.cshtml" />
     <Content Include="Views\Filters\RAM4GB.cshtml" />
     <Content Include="Views\Filters\Cam12to16.cshtml" />
+=======
+    <Content Include="Views\Home\GiveReview.cshtml" />
+    <Content Include="Views\Home\MobileDetails.cshtml" />
+    <Content Include="Views\Home\MobilePictures.cshtml" />
+    <Content Include="Views\Home\MobileReviews.cshtml" />
+>>>>>>> b7679b904f17a59248ca758e8600f917cdc494ae
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

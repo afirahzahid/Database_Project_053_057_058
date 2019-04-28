@@ -5,8 +5,18 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+<<<<<<< HEAD
 using System.Data.Entity;
 
+=======
+<<<<<<< HEAD
+using System.Data.Entity;
+
+=======
+using MobileInfo.Models;
+/* blah blah blah*/
+>>>>>>> bda24a75fcff2e0582c28a41f01fa49fe91b18f0
+>>>>>>> b7679b904f17a59248ca758e8600f917cdc494ae
 
 namespace MobileInfo.Controllers
 {
@@ -124,7 +134,11 @@ namespace MobileInfo.Controllers
                 ModelState.Clear();
                 r = null;
                 ViewBag.Message = "Submitted";
+<<<<<<< HEAD
                 return RedirectToAction("MobileDetails", "Home", new { id = idp});                
+=======
+                return RedirectToAction("MobileDetails", "Home", new { id = idp });
+>>>>>>> b7679b904f17a59248ca758e8600f917cdc494ae
             }
             return View(r);
         }
