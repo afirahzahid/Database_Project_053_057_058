@@ -9,14 +9,12 @@
 
     @foreach (var item in Model)
     {
-        if (item.BrandId == @ViewBag.linkableId)
+        if (item.Main_Camera.Split(',').First().Contains("8") || item.Main_Camera.Split(',').First().Contains("9") || item.Main_Camera.Split(',').First().Contains("10") || item.Main_Camera.Split(',').First().Contains("11") || item.Main_Camera.Split(',').First().Contains("12"))
         {
             <div class="col-md-2" style="margin-bottom:25px; margin-right:87px">
-                <div>
+                <div class="thumbnail">
                     <div class="Images">
-                        <a href="@Url.Action("MobileDetails", "Home", new { id = item.Id })">
-                            <img src="@Url.Content(item.Picture)" style="vertical-align: middle; width: 150px; height:150px">
-                        </a>
+                        <img src="@Url.Content(item.Picture)" height="150" width="150" />
                     </div>
                     <div class="caption" style=" border-top: 3px solid">
                         <h4> @Html.ActionLink(@item.Name, "MobileDetails", new { id = item.Id }) </h4>
@@ -25,7 +23,6 @@
                 </div>
             </div>
         }
-
     }
 </div>
 

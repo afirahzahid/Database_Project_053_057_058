@@ -8,15 +8,37 @@
 <br />
 
 
+
+<div class="container" style="background-color:gainsboro">
+    <div class="Images">
+        <img src="@Url.Content(@Html.DisplayFor(model => model.Picture).ToString()) " height="250" width="200" />
+    </div>
+</div>
+
+
 @Html.ActionLink("Pictures", "MobilePictures", new { id = @ViewBag.linkableId })
 @Html.ActionLink("Reviews", "MobileReviews", new { id = @ViewBag.linkableId })
 @Html.ActionLink("Post your opinion", "GiveReview", new { id = @ViewBag.linkableId })
 
 <div class="container" style="background-color:gainsboro">
-    <div class="Images">
-        <img src="@Url.Content(@Html.DisplayNameFor(model => model.Picture).ToString()) " height="150" width="150" />
-    </div>
+    <h4>Description</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+
+    </dl>
 </div>
+
+<br />
+
+<h3 style="text-align:center"> Detailed Specifications </h3>
 
 
 <div class="container" style="background-color:gainsboro">
@@ -30,6 +52,8 @@
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
+
+        <hr />
 
         <dt>
             @Html.DisplayNameFor(model => model.OS)
@@ -208,14 +232,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Main_Camera)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Camera_Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Camera_Description)
         </dd>
 
         <dt>
@@ -406,25 +422,6 @@
     </dl>
 </div>
 
-<dl class="dl-horizontal">
-    <dt>
-        @Html.DisplayNameFor(model => model.Description)
-    </dt>
-
-    <dd>
-        @Html.DisplayFor(model => model.Description)
-    </dd>
-
-
-    <dt>
-        @Html.DisplayNameFor(model => model.Picture)
-    </dt>
-
-    <dd>
-        @Html.DisplayFor(model => model.Picture)
-    </dd>
-
-</dl>
 
 <br />
 <br />

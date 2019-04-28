@@ -14,18 +14,24 @@
     @foreach (var item in Model)
     {
         <div class="col-md-2" style="margin-bottom:25px; margin-right:87px">
-            <div class="thumbnail">
+            <div>
                 <div class="Images">
-                    <img src="@Url.Content(item.Image)" height="150" width="150" />
+                    <a href="@Url.Action("BrandMobiles", "Home", new { id = item.Id })">
+                        <img src="@Url.Content(item.Image)" style="vertical-align: middle; width: 150px; height:150px">
+                    </a>
+
                 </div>
-                <div class="caption" style=" border-top: 3px solid">
-                    <h3> @Html.ActionLink(@item.Name, "BrandMobiles", new { id = item.Id }) </h3>
-                    <h4> @item.Country</h4>
+                <div class="caption" >
+                    <h4> @Html.ActionLink(@item.Name, "BrandMobiles", new { id = item.Id }) </h4>
                 </div>
             </div>
         </div>
     }
 </div>
+
+<br />
+<br />
+<br />
 
 
 
