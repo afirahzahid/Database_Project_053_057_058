@@ -12,9 +12,11 @@
         if (item.BrandId == @ViewBag.linkableId)
         {
             <div class="col-md-2" style="margin-bottom:25px; margin-right:87px">
-                <div class="thumbnail">
+                <div>
                     <div class="Images">
-                        <img src="@Url.Content(item.Picture)" height="150" width="150" />
+                        <a href="@Url.Action("MobileDetails", "Home", new { id = item.Id })">
+                            <img src="@Url.Content(item.Picture)" style="vertical-align: middle; width: 150px; height:150px">
+                        </a>
                     </div>
                     <div class="caption" style=" border-top: 3px solid">
                         <h4> @Html.ActionLink(@item.Name, "MobileDetails", new { id = item.Id }) </h4>

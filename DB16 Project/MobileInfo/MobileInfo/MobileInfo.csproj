@@ -134,7 +134,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+<<<<<<< HEAD
+    <Compile Include="Controllers\FiltersController.cs" />
+=======
     <Compile Include="Controllers\AdminController.cs" />
+>>>>>>> b7679b904f17a59248ca758e8600f917cdc494ae
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -471,6 +475,16 @@
     <Content Include="homephotos\images.png" />
     <Content Include="homephotos\Lenovo.jpg" />
     <Content Include="homephotos\nokia-logo-1080x675.jpg" />
+    <Content Include="homephotos\note9-1.jpg" />
+    <Content Include="homephotos\note9-2.jpg" />
+    <Content Include="homephotos\note9-3.jpg" />
+    <Content Include="homephotos\note9-4.jpg" />
+    <Content Include="homephotos\note9.jpg" />
+    <Content Include="homephotos\s10plus.jpg" />
+    <Content Include="homephotos\s10plus1.jpg" />
+    <Content Include="homephotos\s10plus2.jpg" />
+    <Content Include="homephotos\s10plus3.jpg" />
+    <Content Include="homephotos\s10plus4.jpg" />
     <Content Include="homephotos\unnamed.jpg" />
     <Content Include="homephotos\wp2611756.jpg" />
     <Content Include="images\avds_large.jpg" />
@@ -656,10 +670,21 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\blah.cshtml" />
     <Content Include="Views\Home\BrandMobiles.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Home\MobileDetails.cshtml" />
+    <Content Include="Views\Home\MobilePictures.cshtml" />
+    <Content Include="Views\Home\GiveReview.cshtml" />
+    <Content Include="Views\Home\MobileReviews.cshtml" />
+    <Content Include="Views\Filters\Price50000.cshtml" />
+    <Content Include="Views\Filters\Screen3to4.cshtml" />
+    <Content Include="Views\Filters\RAM4GB.cshtml" />
+    <Content Include="Views\Filters\Cam12to16.cshtml" />
+=======
     <Content Include="Views\Home\GiveReview.cshtml" />
     <Content Include="Views\Home\MobileDetails.cshtml" />
     <Content Include="Views\Home\MobilePictures.cshtml" />
     <Content Include="Views\Home\MobileReviews.cshtml" />
+>>>>>>> b7679b904f17a59248ca758e8600f917cdc494ae
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

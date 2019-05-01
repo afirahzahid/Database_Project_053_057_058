@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MobileInfo.Models.Mobile>
+
+@{
+                /**/
+
+                ViewBag.Title = "BrandMobiles";
+}
+
+
+<div class="container">
+
+    @foreach (var item in Model)
+    {
+        if (item.Built_in_Memory.Split(' ').Reverse().ElementAt(2).Contains("6"))
+        {
+            <div class="col-md-2" style="margin-bottom:25px; margin-right:87px">
+                <div class="thumbnail">
+                    <div class="Images">
+                        <img src="@Url.Content(item.Picture)" height="150" width="150" />
+                    </div>
+                    <div class="caption" style=" border-top: 3px solid">
+                        <h4> @Html.ActionLink(@item.Name, "MobileDetails", new { id = item.Id }) </h4>
+                        <h5> @item.Price</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

@@ -13,11 +13,16 @@ using System.Web.UI;
 namespace MobileInfo.Controllers
 {
     public class AdminController : Controller
+<<<<<<< HEAD
 	{
 		//lalalala
 		//lalala
 
 		private DB16Entities db = new DB16Entities();
+=======
+    {
+        private DB16Entities db = new DB16Entities();
+>>>>>>> 5ac921e2a5e496c01a7bb1f21265a8855943c8f4
 		SqlConnection con = new SqlConnection(@"Data Source = HAIER - PC\SQLEXPRESS; Initial Catalog = ProjectA; Integrated Security = True");
 		SqlConnection con1 = new SqlConnection(@"Data Source =HAIER-PC\SQLEXPRESS;initial catalog = DB16; integrated security = True");
 		public ActionResult BIndex()
@@ -306,29 +311,7 @@ namespace MobileInfo.Controllers
         {
             return View();
         }
-
-        // GET: Admin/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
+	
 //***************************************** Pictures ******************************************//
 		public ActionResult PIndex()
 		{
@@ -367,12 +350,83 @@ namespace MobileInfo.Controllers
 			}
 		}
 
+<<<<<<< HEAD
+//***************************************** Pictures ******************************************//
+		public ActionResult PIndex()
+		{
+			using (DB16Entities db = new DB16Entities())
+			{
+				return View(db.Pictures.ToList());
+			}
+		}
+
+		[HttpGet]
+		public ActionResult RegisterPicture(int id = 0)
+		{
+			ViewBag.MobileId = new SelectList(db.Mobiles, "Id", "Name");
+			return View();
+		}
+		
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult RegisterPicture(Picture obj)
+=======
 		public ActionResult PEdit(int? id)
 		{
 			if (id == null)
 			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
+			Picture s = db.Pictures.Find(id);
+			if (s == null)
+			{
+				return HttpNotFound();
+			}
+			ViewBag.MobileId = new SelectList(db.Mobiles, "Id", "Name", s.MobileId);
+			return View(s);
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult PEdit(Picture obj)
+>>>>>>> 5ac921e2a5e496c01a7bb1f21265a8855943c8f4
+		{
+			string fileName = Path.GetFileNameWithoutExtension(obj.ImageFile1.FileName);
+			string extension = Path.GetExtension(obj.ImageFile1.FileName);
+			fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+			obj.Image = "~/Image/" + fileName;
+			fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+			obj.ImageFile1.SaveAs(fileName);
+<<<<<<< HEAD
+			using (DB16Entities db = new DB16Entities())
+			{
+				db.Pictures.Add(obj);
+				db.SaveChanges();
+				ModelState.Clear();
+				obj = null;
+
+				TempData["msg"] = "<script>alert('Register successfully');</script>";
+				return RedirectToAction("RegisterPicture");
+			}
+		}
+
+		public ActionResult PEdit(int? id)
+=======
+
+			db.Entry(obj).State = EntityState.Modified;
+			db.SaveChanges();
+			return RedirectToAction("PIndex");
+
+		}
+
+		public ActionResult PDelete(int? id)
+>>>>>>> 5ac921e2a5e496c01a7bb1f21265a8855943c8f4
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+<<<<<<< HEAD
 			Picture s = db.Pictures.Find(id);
 			if (s == null)
 			{
@@ -435,4 +489,36 @@ namespace MobileInfo.Controllers
 		}
 		
 	}
+=======
+			Picture user = db.Pictures.Find(id);
+			if (user == null)
+			{
+				return HttpNotFound();
+			}
+			return View(user);
+		}
+
+
+		[HttpPost, ActionName("PDelete")]
+		[ValidateAntiForgeryToken]
+		public ActionResult PDeleteConfirmed(int id)
+		{		
+			Picture p = db.Pictures.Find(id);
+			db.Pictures.Remove(p);
+			db.SaveChanges();
+			return RedirectToAction("PIndex");
+		}
+
+		public ActionResult PDetails(int? id)
+		{
+			Picture p = new Picture();
+			using (DB16Entities db = new DB16Entities())
+			{
+				p = db.Pictures.Where(x => x.Id == id).FirstOrDefault();
+			}
+			return View(p);
+		}
+
+    }
+>>>>>>> 5ac921e2a5e496c01a7bb1f21265a8855943c8f4
 }

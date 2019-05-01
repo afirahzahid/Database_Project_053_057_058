@@ -23,6 +23,7 @@
     <EntitySetMapping Name="Mobiles">
       <EntityTypeMapping TypeName="DB16Model.Mobile">
         <MappingFragment StoreEntitySet="Mobile">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="OS" ColumnName="OS" />
@@ -43,7 +44,6 @@
           <ScalarProperty Name="Built_in_Memory" ColumnName="Built-in Memory" />
           <ScalarProperty Name="Card" ColumnName="Card" />
           <ScalarProperty Name="Main_Camera" ColumnName="Main Camera" />
-          <ScalarProperty Name="Camera_Description" ColumnName="Camera Description" />
           <ScalarProperty Name="Features" ColumnName="Features" />
           <ScalarProperty Name="Front_Camera" ColumnName="Front Camera" />
           <ScalarProperty Name="WLAN" ColumnName="WLAN" />
@@ -71,8 +71,8 @@
     <EntitySetMapping Name="Pictures">
       <EntityTypeMapping TypeName="DB16Model.Picture">
         <MappingFragment StoreEntitySet="Pictures">
+          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Picture1" ColumnName="Picture" />
           <ScalarProperty Name="MobileId" ColumnName="MobileId" />
         </MappingFragment>
       </EntityTypeMapping>

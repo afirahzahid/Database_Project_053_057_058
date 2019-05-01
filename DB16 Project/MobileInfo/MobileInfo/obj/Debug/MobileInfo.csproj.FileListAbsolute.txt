@@ -332,10 +332,13 @@ C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\bin\Antlr3.Run
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.csprojAssemblyReference.cache
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.csproj.CoreCompileInputs.cache
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.csproj.CopyComplete
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.dll
 C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.pdb
+<<<<<<< HEAD
+C:\Users\Hp\Desktop\db project\DB16 Project\MobileInfo\MobileInfo\obj\Debug\MobileInfo.csprojAssemblyReference.cache
+=======
 >>>>>>> 2d817efd238143b979a7bee487bcc2767c675996
 >>>>>>> bda24a75fcff2e0582c28a41f01fa49fe91b18f0
+>>>>>>> b7679b904f17a59248ca758e8600f917cdc494ae

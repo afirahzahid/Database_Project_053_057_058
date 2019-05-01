@@ -41,7 +41,6 @@ namespace MobileInfo.Models
         public string Built_in_Memory { get; set; }
         public string Card { get; set; }
         public string Main_Camera { get; set; }
-        public string Camera_Description { get; set; }
         public string Features { get; set; }
         public string Front_Camera { get; set; }
         public string WLAN { get; set; }
@@ -59,10 +58,11 @@ namespace MobileInfo.Models
         public string Extra { get; set; }
         public string Battery { get; set; }
         public long Price { get; set; }
-        public System.DateTime Announced_On { get; set; }
+        public Nullable<System.DateTime> Announced_On { get; set; }
         public string Status { get; set; }
         public string Description { get; set; }
         public int BrandId { get; set; }
+        public string Picture { get; set; }
     
         public virtual Brand Brand { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

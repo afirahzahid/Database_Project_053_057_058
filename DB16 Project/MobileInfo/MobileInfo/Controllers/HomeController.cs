@@ -5,13 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-<<<<<<< HEAD
 using System.Data.Entity;
 
-=======
-using MobileInfo.Models;
-/* blah blah blah*/
->>>>>>> bda24a75fcff2e0582c28a41f01fa49fe91b18f0
 
 namespace MobileInfo.Controllers
 {
@@ -129,9 +124,133 @@ namespace MobileInfo.Controllers
                 ModelState.Clear();
                 r = null;
                 ViewBag.Message = "Submitted";
-                return RedirectToAction("MobileDetails", "Home", new { id = idp });
+                return RedirectToAction("MobileDetails", "Home", new { id = idp});                
             }
             return View(r);
         }
+
+        public ActionResult Price200()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult Price150to199()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult Price100to149()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult Price50to99()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult Price50()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult RAM16GB()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult RAM8GB()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult RAM6GB()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult RAM4GB()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult RAMLess4GB()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult ScreenLess4()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult Screen4to5()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult Screen5to6()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult Screen6to7()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult Screen7to8()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult CamLess8()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult Cam8to12()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult Cam13to16()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+
+        public ActionResult Cam17to24()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+        public ActionResult Cam25to40()
+        {
+            var entities = new DB16Entities();
+            return View(entities.Mobiles.ToList());
+        }
+
+
+
     }
 }

@@ -24,12 +24,12 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="OS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="UI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Dimensions" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Weight" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SIM" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Colors" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dimensions" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SIM" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Colors" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="C2G_Band" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="C3G_Band" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="C4G_Band" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -37,12 +37,11 @@
     <Property Name="Chipset" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="GPU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Technology" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Resolution" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Built_in_Memory" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Resolution" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Built_in_Memory" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Card" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Main_Camera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Camera_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Main_Camera" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Features" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Front_Camera" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="WLAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -53,29 +52,30 @@
     <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Sensors" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Audio" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="Browser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Browser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Messaging" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Games" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Torch" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Torch" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="Extra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Battery" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Battery" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Int64" Nullable="false" />
-    <Property Name="Announced_On" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Announced_On" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="BrandId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Brand" Relationship="Self.FK_Mobile_Brands" FromRole="Mobile" ToRole="Brands" />
     <NavigationProperty Name="Pictures" Relationship="Self.FK_Pictures_Mobile" FromRole="Mobile" ToRole="Pictures" />
     <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_Mobile" FromRole="Mobile" ToRole="Reviews" />
+    <Property Name="Picture" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Picture">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Picture1" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
     <Property Name="MobileId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Mobile" Relationship="Self.FK_Pictures_Mobile" FromRole="Pictures" ToRole="Mobile" />
+    <Property Name="Image" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Review">
     <Key>
