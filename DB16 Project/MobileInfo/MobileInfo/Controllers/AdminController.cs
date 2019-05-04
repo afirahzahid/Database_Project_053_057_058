@@ -12,17 +12,10 @@ using System.Web.UI;
 
 namespace MobileInfo.Controllers
 {
-    public class AdminController : Controller
-<<<<<<< HEAD
+	public class AdminController : Controller
 	{
-		//lalalala
-		//lalala
 
 		private DB16Entities db = new DB16Entities();
-=======
-    {
-        private DB16Entities db = new DB16Entities();
->>>>>>> 5ac921e2a5e496c01a7bb1f21265a8855943c8f4
 		SqlConnection con = new SqlConnection(@"Data Source = HAIER - PC\SQLEXPRESS; Initial Catalog = ProjectA; Integrated Security = True");
 		SqlConnection con1 = new SqlConnection(@"Data Source =HAIER-PC\SQLEXPRESS;initial catalog = DB16; integrated security = True");
 		public ActionResult BIndex()
@@ -46,7 +39,7 @@ namespace MobileInfo.Controllers
 			return View(products.ToList());
 		}
 
-
+		// Admin Login
 		[HttpGet]
 		public ActionResult AdminLogin()
 		{
@@ -79,6 +72,7 @@ namespace MobileInfo.Controllers
 			return View();
 		}
 
+		// ****************** Brands ****************
 		[HttpGet]
 		public ActionResult RegisterBrand()
 		{
@@ -100,42 +94,10 @@ namespace MobileInfo.Controllers
 				db.SaveChanges();
 				ModelState.Clear();
 				obj = null;
-	
+
 				ViewBag.Message = "Registered Successful";
 				return RedirectToAction("RegisterBrand");
 			}
-		}
-
-
-		[HttpGet]
-		public ActionResult Edit(int? id)
-		{
-			if (id == null)
-			{
-				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-			}
-			Brand s = db.Brands.SingleOrDefault(x => x.Id == id);
-			if (s == null)
-			{
-				return HttpNotFound();
-			}
-			return View(s);
-		}
-
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Edit(Brand obj)
-		{
-			string fileName = Path.GetFileNameWithoutExtension(obj.ImageFile.FileName);
-			string extension = Path.GetExtension(obj.ImageFile.FileName);
-			fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-			obj.Image = "~/Image/" + fileName;
-			fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
-			obj.ImageFile.SaveAs(fileName);
-			db.Entry(obj).State = EntityState.Modified;
-			db.SaveChanges();
-			return RedirectToAction("BIndex");
-
 		}
 
 		public ActionResult BDelete(int? id)
@@ -182,17 +144,38 @@ namespace MobileInfo.Controllers
 			return RedirectToAction("BIndex");
 		}
 
-		public ActionResult BDetails(int? id)
+		[HttpGet]
+		public ActionResult Edit(int? id)
 		{
-			Brand b = new Brand();
-			using (DB16Entities db = new DB16Entities())
+			if (id == null)
 			{
-				b = db.Brands.Where(x => x.Id == id).FirstOrDefault();
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
-			return View(b);
+			Brand s = db.Brands.SingleOrDefault(x => x.Id == id);
+			if (s == null)
+			{
+				return HttpNotFound();
+			}
+			return View(s);
 		}
 
-//********************************************* Mobile ***********************************************//
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult Edit(Brand obj)
+		{
+			string fileName = Path.GetFileNameWithoutExtension(obj.ImageFile.FileName);
+			string extension = Path.GetExtension(obj.ImageFile.FileName);
+			fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+			obj.Image = "~/Image/" + fileName;
+			fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+			obj.ImageFile.SaveAs(fileName);
+			db.Entry(obj).State = EntityState.Modified;
+			db.SaveChanges();
+			return RedirectToAction("BIndex");
+
+		}
+
+		//********************************************* Mobile ***********************************************//
 		public ActionResult MIndex()
 		{
 			using (DB16Entities db = new DB16Entities())
@@ -256,7 +239,7 @@ namespace MobileInfo.Controllers
 			obj.Picture = "~/Image/" + fileName;
 			fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
 			obj.ImageFile1.SaveAs(fileName);
-	
+
 
 
 			db.Entry(obj).State = EntityState.Modified;
@@ -321,11 +304,11 @@ namespace MobileInfo.Controllers
 
 		// GET: Admin/Details/5
 		public ActionResult Details(int id)
-        {
-            return View();
-        }
-	
-//***************************************** Pictures ******************************************//
+		{
+			return View();
+		}
+
+		//***************************************** Pictures ******************************************//
 		public ActionResult PIndex()
 		{
 			using (DB16Entities db = new DB16Entities())
@@ -340,7 +323,7 @@ namespace MobileInfo.Controllers
 			ViewBag.MobileId = new SelectList(db.Mobiles, "Id", "Name");
 			return View();
 		}
-		
+
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public ActionResult RegisterPicture(Picture obj)
@@ -363,8 +346,8 @@ namespace MobileInfo.Controllers
 			}
 		}
 
-<<<<<<< HEAD
-//***************************************** Pictures ******************************************//
+
+		//***************************************** Pictures ******************************************//
 		public ActionResult PIndex()
 		{
 			using (DB16Entities db = new DB16Entities())
@@ -379,11 +362,10 @@ namespace MobileInfo.Controllers
 			ViewBag.MobileId = new SelectList(db.Mobiles, "Id", "Name");
 			return View();
 		}
-		
+
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult RegisterPicture(Picture obj)
-=======
+
 		public ActionResult PEdit(int? id)
 		{
 			if (id == null)
@@ -402,7 +384,6 @@ namespace MobileInfo.Controllers
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public ActionResult PEdit(Picture obj)
->>>>>>> 5ac921e2a5e496c01a7bb1f21265a8855943c8f4
 		{
 			string fileName = Path.GetFileNameWithoutExtension(obj.ImageFile1.FileName);
 			string extension = Path.GetExtension(obj.ImageFile1.FileName);
@@ -410,7 +391,7 @@ namespace MobileInfo.Controllers
 			obj.Image = "~/Image/" + fileName;
 			fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
 			obj.ImageFile1.SaveAs(fileName);
-<<<<<<< HEAD
+
 			using (DB16Entities db = new DB16Entities())
 			{
 				db.Pictures.Add(obj);
@@ -424,7 +405,7 @@ namespace MobileInfo.Controllers
 		}
 
 		public ActionResult PEdit(int? id)
-=======
+		{
 
 			db.Entry(obj).State = EntityState.Modified;
 			db.SaveChanges();
@@ -433,13 +414,11 @@ namespace MobileInfo.Controllers
 		}
 
 		public ActionResult PDelete(int? id)
->>>>>>> 5ac921e2a5e496c01a7bb1f21265a8855943c8f4
 		{
 			if (id == null)
 			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
-<<<<<<< HEAD
 			Picture s = db.Pictures.Find(id);
 			if (s == null)
 			{
@@ -484,7 +463,7 @@ namespace MobileInfo.Controllers
 		[HttpPost, ActionName("PDelete")]
 		[ValidateAntiForgeryToken]
 		public ActionResult PDeleteConfirmed(int id)
-		{		
+		{
 			Picture p = db.Pictures.Find(id);
 			db.Pictures.Remove(p);
 			db.SaveChanges();
@@ -500,38 +479,6 @@ namespace MobileInfo.Controllers
 			}
 			return View(p);
 		}
-		
+
 	}
-=======
-			Picture user = db.Pictures.Find(id);
-			if (user == null)
-			{
-				return HttpNotFound();
-			}
-			return View(user);
-		}
-
-
-		[HttpPost, ActionName("PDelete")]
-		[ValidateAntiForgeryToken]
-		public ActionResult PDeleteConfirmed(int id)
-		{		
-			Picture p = db.Pictures.Find(id);
-			db.Pictures.Remove(p);
-			db.SaveChanges();
-			return RedirectToAction("PIndex");
-		}
-
-		public ActionResult PDetails(int? id)
-		{
-			Picture p = new Picture();
-			using (DB16Entities db = new DB16Entities())
-			{
-				p = db.Pictures.Where(x => x.Id == id).FirstOrDefault();
-			}
-			return View(p);
-		}
-
-    }
->>>>>>> 5ac921e2a5e496c01a7bb1f21265a8855943c8f4
 }
