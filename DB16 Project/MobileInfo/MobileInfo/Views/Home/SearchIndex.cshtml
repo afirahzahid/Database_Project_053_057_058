@@ -1,0 +1,96 @@
+﻿@model IEnumerable<MobileInfo.Models.Mobile>
+<h3 style="text-align:center; background-color:gainsboro; border:groove; border-color:cornflowerblue"> Mobile Phone List</h3>
+<br />
+@Html.ActionLink("Go Back", "Index", "Home")
+<br />
+@using (Html.BeginForm("SearchIndex", "Home", FormMethod.Get))
+{
+	@Html.TextBox("Searching")<input type="submit" value="search" />
+}
+<br />
+<br />
+<br />
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Colors)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Main_Camera)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Price)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Announced_On)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Picture)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Brand.Name)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model.Count() == 0)
+		{
+			<tr>
+				<td colspan="3" style="color:red">
+					No Match Found
+					<br />
+					<br />
+					<br />
+				</td>
+			</tr>
+		}
+		else
+		{
+			foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@item.Name
+					</td>
+
+					<td>
+						@item.Colors
+					</td>
+					<td>
+						@item.Main_Camera
+					</td>
+					<td>
+						@item.Price
+					</td>
+					<td>
+						@item.Announced_On
+					</td>
+					<td>
+						<img src="@Url.Content(item.Picture)" height="200" width="150" />
+					</td>
+					<td>
+						@item.Brand.Name
+					</td>
+					<td cstyle="font-size:20px; text-align:center ; color:black">
+
+						<div class="button checkout_button" style="background-color: lightgray; border-radius: 8px; text-align:center ; width:80px; height:65px">
+							@Html.ActionLink("Details", "SearchingDetails", new { id = item.Id })
+
+						</div>
+					</td>
+				</tr>
+			}
+		}
+	</tbody>
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

@@ -63,15 +63,19 @@
 											<ul>
 												<li class="subs">
 													@Html.ActionLink("Search By Name", "SearchIndex", "Home")
-
+													
 												</li>
 												<li class="subs hassubs">
 													<a href="#">Price</a>
 													<ul class="dropdown">
 														<li class="subs"><a @Html.ActionLink("Greater than 200k", "Price200", "Home")</a></li>
+
 														<li class="subs"><a @Html.ActionLink("150000 - 199999", "Price150to199", "Home")</a></li>
+
 														<li class="subs"><a @Html.ActionLink("100000 - 149999", "Price100to149", "Home")</a></li>
+
 														<li class="subs"><a @Html.ActionLink("50000 - 99999", "Price50to99", "Home")</a></li>
+
 														<li class="subs"><a @Html.ActionLink("Less than 50k", "Price50", "Home")</a></li>
 													</ul>
 												</li>
@@ -109,6 +113,7 @@
 
 											</ul>
                                         </li>
+
                                         <li><a @Html.ActionLink("DashBoard", "AdminLogin", "Admin")</a></li>
 
                                     </ul>

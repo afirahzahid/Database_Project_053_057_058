@@ -15,6 +15,8 @@ namespace MobileInfo.Controllers
 
 		private DB16Entities db = new DB16Entities();
 		SqlConnection con1 = new SqlConnection(@"Data Source = HAIER-PC\SQLEXPRESS;initial catalog = DB16; integrated security = True");
+		SqlConnection con2 = new SqlConnection(@"Data Source = HAIER-PC\SQLEXPRESS;initial catalog = DB16; integrated security = True");
+		SqlConnection con3 = new SqlConnection(@"Data Source = HAIER-PC\SQLEXPRESS;initial catalog = DB16; integrated security = True");
 
 		public ActionResult Index()
 		{
@@ -38,9 +40,13 @@ namespace MobileInfo.Controllers
 			return View(m);
 		}
 
-		
+		public ActionResult Index()
+		{
+			var entities = new DB16Entities();
+			return View(entities.Brands.ToList());
+		}
 
-        public ActionResult blah()
+		public ActionResult blah()
         {
             ViewBag.Message = "Your contact page.";
 
