@@ -1,40 +1,56 @@
 ﻿@model MobileInfo.Models.Picture
 
 
-@using (Html.BeginForm("RegisterPicture", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+@using (Html.BeginForm("RegisterPicture", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
-    
+	@Html.AntiForgeryToken()
+<div class="order_list_container" style="background-color:rgb(242,244,248)">
+    <br />
+    <br />
     <div class="form-horizontal">
-        <h4>Picture</h4>
+        <h4 style="padding-left:43%">Add New Picture</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div class="form-group" style="padding-left:35%">
             @Html.LabelFor(model => model.MobileId, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.DropDownList("MobileId", "Select Mobile");
-			</div>
+            <div class="col-md-10" >
+                @Html.DropDownList("MobileId", "Select Mobile");
+            </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="padding-left:35%">
             @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-				<input type="file" name="ImageFile1" required>
+                <input type="file" name="ImageFile1" required>
             </div>
         </div>
-
-        <div class="form-group">
+        <br />
+        <div class="form-group" style="padding-left:38%">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" style="background-color:rgb(101,62,101);color:white" /> <p>  </p>
+                @Html.ActionLink("Go Back", "PIndex", "Admin")
+                <br />
             </div>
         </div>
+        <br />
+        <br />
     </div>
-}
+    </div>
+    <br />
+    <br />
+    <br />
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

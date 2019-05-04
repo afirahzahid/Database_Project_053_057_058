@@ -1,59 +1,63 @@
 ﻿@model MobileInfo.Models.Brand
 
+@{
+	ViewBag.Title = "Delete";
+}
+
 <div class="order_list_container" style="background-color:rgb(242,244,248)">
-    <br />
-    <h3 style="padding-left:30%">Are you sure you want to delete this Brand?</h3>
+	<br />
+	<h3 style="padding-left:30%">Are you sure you want to delete this Brand?</h3>
 
-    <hr />
+	<hr />
 
-    <dl class="dl-horizontal" style="padding-left:30%">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+	<dl class="dl-horizontal" style="padding-left:27%">
+		<dt>
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Name)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Country)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Country)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Country)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Image)
+		</dt>
 
-        <dd>
-            <img src="@Url.Content(Model.Image)" height="150" width="150" />
-        </dd>
+		<dd>
+			<img src="@Url.Content(Model.Image)" height="150" width="150" />
+		</dd>
 
-    </dl>
-    </>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <br>
-        <div class="form-actions no-color" style="padding-left:45%">
-            <input type="submit" value="Delete" class="btn btn-default" style="background-color:rgb(101,62,101);color:white" /> <p>  </p>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+		<dt>
+			@Html.DisplayNameFor(model => model.Description)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Description)
+		</dd>
+
+	</dl>
+	</>
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+		<br>
+		<div class="form-actions no-color" style="padding-left:45%">
+			<input type="submit" value="Delete" class="btn btn-default" style="background-color:rgb(101,62,101);color:white" /> <p>  </p>
+			@Html.ActionLink("Back to List", "Index")
+		</div>
+		<br />
         <br />
-    }
+        <br />
+        <br />
+	}
 </div>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 <br />
 <br />
