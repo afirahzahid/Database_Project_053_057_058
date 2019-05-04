@@ -13,6 +13,28 @@
     <link rel="stylesheet" type="text/css" href="~/plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="~/styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="~/styles/responsive.css">
+
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/styles/util.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/main.css">
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -30,34 +52,65 @@
                     <div class="row">
                         <div class="col">
                             <div class="header_content d-flex flex-row align-items-center justify-content-start">
-                                <div class="logo"><a href="~/#">Sublime.</a></div>
+                                <div class="logo"><a href="~/#">SublimeMobiles</a></div>
                                 <nav class="main_nav">
                                     <ul>
-                                        <li class="hassubs active">
-                                            <a href="~/index.html">Home</a>
-                                            <ul>
-                                                <li><a href="~/categories.html">Categories</a></li>
-                                                <li><a href="~/product.html">Product</a></li>
-                                                <li><a href="~/cart.html">Cart</a></li>
-                                                <li><a href="~/checkout.html">Check out</a></li>
-                                                <li><a href="~/contact.html">Contact</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a @Html.ActionLink("Home", "Index", "Home")</a></li>
+                                        <li><a href="~/#">News</a></li>
+                                        <li><a href="~/contact.html">Contact</a></li>
                                         <li class="hassubs">
                                             <a href="~/categories.html">Search By</a>
-                                            <ul>
-                                                <li><a @Html.ActionLink("Price Greater than 50k", "Price50000", "Filters")</a></li>
-                                                <li><a @Html.ActionLink("Screen 3-4 inches", "Screen3to4", "Filters")</a></li>
-                                                <li><a @Html.ActionLink("RAM 4GB", "RAM4GB", "Filters")</a></li>
-                                                <li><a href="~/categories.html">Camera</a></li>
-                                                <li><a href="~/categories.html">Release Date</a></li>
-                                                
-                                            </ul>
+											<ul>
+												<li class="subs">
+													@Html.ActionLink("Search By Name", "SearchIndex", "Home")
+
+												</li>
+												<li class="subs hassubs">
+													<a href="#">Price</a>
+													<ul class="dropdown">
+														<li class="subs"><a @Html.ActionLink("Greater than 200k", "Price200", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("150000 - 199999", "Price150to199", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("100000 - 149999", "Price100to149", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("50000 - 99999", "Price50to99", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("Less than 50k", "Price50", "Home")</a></li>
+													</ul>
+												</li>
+												<li class="subs hassubs">
+													<a href="#">RAM</a>
+													<ul class="dropdown">
+														<li class="subs"><a @Html.ActionLink("16GB", "RAM16GB", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("8GB", "RAM8GB", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("6GB", "RAM6GB", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("4GB", "RAM4GB", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("Less than 4GB", "RAMLess4GB", "Home")</a></li>
+
+													</ul>
+												</li>
+												<li class="subs hassubs">
+													<a href="#">Screen Size</a>
+													<ul class="dropdown">
+														<li class="subs"><a @Html.ActionLink("7.0 - 7.9 inches", "Screen7to8", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("6.0 - 6.9 inches", "Screen6to7", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("5.0 - 5.9 inches", "Screen5to6", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("4.0 - 4.9 inches", "Screen4to5", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("Less than 4 inches", "ScreenLess4", "Home")</a></li>
+													</ul>
+												</li>
+												<li class="subs hassubs">
+													<a href="#">Camera</a>
+													<ul class="dropdown">
+														<li class="subs"><a @Html.ActionLink("25 - 40 MP", "Cam25to40", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("17 - 24 MP", "Cam17to24", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("13 - 16 MP", "Cam13to16", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("8 - 12 MP", "Cam8to12", "Home")</a></li>
+														<li class="subs"><a @Html.ActionLink("Less than 8 MP", "CamLess8", "Home")</a></li>
+													</ul>
+												</li>
+
+											</ul>
                                         </li>
-                                        <li><a href="~/#">Accessories</a></li>
-                                        <li><a href="~/#">Offers</a></li>
-                                        <li><a href="~/Home/Contact">Contact</a></li>
-                                        <li><a href="~/Home/About">About</a></li>
+                                        <li><a @Html.ActionLink("DashBoard", "AdminLogin", "Admin")</a></li>
+
                                     </ul>
                                 </nav>
                                 <div class="header_extra ml-auto">
@@ -71,6 +124,7 @@
 													C440.2,423.5,440.2,423.1,440.1,422.7z M244.5,27c37.9,0,68.8,30.4,69.6,68.1H174.9C175.7,57.4,206.6,27,244.5,27z M366.8,462
 													H122.2c-25.4,0-46-16.8-46.4-37.5l26.8-302.3h45.2v41c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h139.3v41
 													c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h45.2l26.9,302.3C412.8,445.2,392.1,462,366.8,462z" />
+
 
 
 
@@ -101,6 +155,13 @@
 												" />
 
 
+
+
+
+
+
+
+
 										</g>
 									</svg>
                                         </div>
@@ -120,7 +181,7 @@
                         <div class="col">
                             <div class="search_panel_content d-flex flex-row align-items-center justify-content-end">
                                 <form action="#">
-                                    <input type="text" class="search_input" placeholder="Search" required="required">
+                                    <input type="text" class="search_input" placeholder="Search" required="required"> <a @Html.ActionLink("text", "Index", "Admin")></a>
                                 </form>
                             </div>
                         </div>
@@ -173,6 +234,9 @@
                         <li class="page_menu_item menu_mm"><a href="~/index.html">Accessories<i class="fa fa-angle-down"></i></a></li>
                         <li class="page_menu_item menu_mm"><a href="~/#">Offers<i class="fa fa-angle-down"></i></a></li>
                         <li class="page_menu_item menu_mm"><a href="~/contact.html">Contact<i class="fa fa-angle-down"></i></a></li>
+
+                        <li lass="page_menu_item menu_mm"><a @Html.ActionLink("DashBoard", "AdminLogin", "Admin")</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -199,14 +263,14 @@
 
                     <!-- Slider Item -->
                     <div class="owl-item home_slider_item">
-                        <div class="home_slider_background" style="background-image:url(/images/home_slider_1.jpg)"></div>
+                        <div class="home_slider_background" style="background-image:url(/homephotos/pexels-photo-404280.jpeg)"></div>
                         <div class="home_slider_content_container">
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
                                         <div class="home_slider_content" data-animation-in="fadeIn" data-animation-out="animate-ut fadeOut">
-                                            <div class="home_slider_title">A new Online Shop experience.</div>
-                                            <div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
+                                            <div class="home_slider_title">A new Online Mobile Information Store.</div>
+                                            <div class="home_slider_subtitle">Having a variety of mobile phones of different brands with amazing features, prices and decription! So what are you waiting for? Visit our website now.</div>
                                             <div class="button button_light home_button"><a href="~/#">Shop Now</a></div>
                                         </div>
                                     </div>
@@ -217,14 +281,14 @@
 
                     <!-- Slider Item -->
                     <div class="owl-item home_slider_item">
-                        <div class="home_slider_background" style="background-image:url(/images/home_slider_1.jpg)"></div>
+                        <div class="home_slider_background" style="background-image:url(/homephotos/pexels-photo-89955.jpeg)"></div>
                         <div class="home_slider_content_container">
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
                                         <div class="home_slider_content" data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-                                            <div class="home_slider_title">A new Online Shop experience.</div>
-                                            <div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
+                                            <div class="home_slider_title">A new Online Mobile Information Store.</div>
+                                            <div class="home_slider_subtitle">Having a variety of mobile phones of different brands with amazing features, prices and decription! So what are you waiting for? Visit our website now.</div>
                                             <div class="button button_light home_button"><a href="~/#">Shop Now</a></div>
                                         </div>
                                     </div>
@@ -235,14 +299,14 @@
 
                     <!-- Slider Item -->
                     <div class="owl-item home_slider_item">
-                        <div class="home_slider_background" style="background-image:url(/images/home_slider_1.jpg)"></div>
+                        <div class="home_slider_background" style="background-image:url(/homephotos/office-865091_960_720.jpg)"></div>
                         <div class="home_slider_content_container">
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
                                         <div class="home_slider_content" data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-                                            <div class="home_slider_title">A new Online Shop experience.</div>
-                                            <div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
+                                            <div class="home_slider_title">A new Online Mobile Information Store.</div>
+                                            <div class="home_slider_subtitle">Having a variety of mobile phones of different brands with amazing features, prices and decription! So what are you waiting for? Visit our website now.</div>
                                             <div class="button button_light home_button"><a href="~/#">Shop Now</a></div>
                                         </div>
                                     </div>
@@ -275,32 +339,29 @@
         </div>
 
 
-<<<<<<< HEAD
-=======
-        <!-- Footer -->
->>>>>>> b7679b904f17a59248ca758e8600f917cdc494ae
+        <!------ Include the above in your HEAD tag ---------->
         <!-- Footer -->
 
         <div class="footer_overlay"></div>
         <footer class="footer">
-            <div class="footer_background" style="background-image:url(images/footer.jpg)"></div>
+            <div class="footer_background" style="background-image:url(/images/footer.jpg)"></div>
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
-                            <div class="footer_logo"><a href="#">Sublime.</a></div>
+                            <div class="footer_logo"><a href="~/#">Sublime.</a></div>
                             <div class="copyright ml-auto mr-auto">
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 Copyright &copy;
-                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved |
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </div>
                             <div class="footer_social ml-lg-auto">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="~/#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="~/#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="~/#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="~/#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -308,31 +369,170 @@
                 </div>
             </div>
         </footer>
+    </div>
 
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
 
-        </div>
+    </div>
 
 
 
-        <script src="/js/jquery-3.2.1.min.js"></script>
-        <script src="/styles/bootstrap4/popper.js"></script>
-        <script src="/styles/bootstrap4/bootstrap.min.js"></script>
-        <script src="/plugins/greensock/TweenMax.min.js"></script>
-        <script src="/plugins/greensock/TimelineMax.min.js"></script>
-        <script src="/plugins/scrollmagic/ScrollMagic.min.js"></script>
-        <script src="/plugins/greensock/animation.gsap.min.js"></script>
-        <script src="/plugins/greensock/ScrollToPlugin.min.js"></script>
-        <script src="/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-        <script src="/plugins/Isotope/isotope.pkgd.min.js"></script>
-        <script src="/plugins/easing/easing.js"></script>
-        <script src="/plugins/parallax-js-master/parallax.min.js"></script>
-        <script src="/js/custom.js"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/styles/bootstrap4/popper.js"></script>
+    <script src="/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="/plugins/greensock/TweenMax.min.js"></script>
+    <script src="/plugins/greensock/TimelineMax.min.js"></script>
+    <script src="/plugins/scrollmagic/ScrollMagic.min.js"></script>
+    <script src="/plugins/greensock/animation.gsap.min.js"></script>
+    <script src="/plugins/greensock/ScrollToPlugin.min.js"></script>
+    <script src="/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="/plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="/plugins/easing/easing.js"></script>
+    <script src="/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
 
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 
 </body>
 </html>
+
+
+
+<style>
+    .main {
+        width: 100%;
+        background: #eee;
+    }
+    /*General Menu Styling*/
+    .mainnav {
+        margin: 0 auto
+    }
+
+    li {
+        list-style: none;
+    }
+
+        li a {
+            text-decoration: none;
+        }
+
+    .dropdown {
+        position: absolute;
+        width: 150px;
+        top: 41px;
+        opacity: 0;
+        visibility: hidden;
+        transition: ease-out .35s;
+        -moz-transition: ease-out .35s;
+        -webkit-transition: ease-out .35s;
+    }
+
+    .mainnav li {
+        float: left;
+        padding: 5px;
+        background: maroon;
+        border-left: 1px dotted #fff;
+    }
+
+        .mainnav li:first-child {
+            border: none;
+        }
+
+        .mainnav li a {
+            display: block;
+            padding: 2px 20px;
+            color: #fff;
+            font-family: arial;
+        }
+
+        .mainnav li:hover {
+            background: #fff;
+            transition: ease-in .35s;
+            -moz-transition: ease-in .35s;
+            -webkit-transition: ease-in .35s;
+        }
+
+            .mainnav li:hover a {
+                color: maroon;
+                transition: ease-in .35s;
+                -moz-transition: ease-in .35s;
+                -webkit-transition: ease-in .35s;
+            }
+    /*First Level*/
+    .subs {
+        left: -45px;
+        position: relative;
+        top: 0px;
+        width: 175px;
+        border-left: none !important;
+        border-bottom: 1px dotted #fff !important;
+    }
+
+        .subs:last-child {
+            border: none !important;
+        }
+
+    .hassubs:hover .dropdown, .hassubs .hassubs:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transition: ease-in .35s;
+        -moz-transition: ease-in .35s;
+        -webkit-transition: ease-in .35s;
+    }
+
+    .mainnav li:hover ul a, .mainnav li:hover ul li ul li a {
+        color: white;
+    }
+
+    .mainnav li ul li:hover, .mainnav li ul li ul li:hover {
+        background: #fff;
+        transition: ease-in-out .35s;
+        -moz-transition: ease-in-out .35s;
+        -webkit-transition: ease-in-out .35s;
+    }
+
+        .mainnav li ul li:hover a, .mainnav li ul li ul li:hover a {
+            color: maroon;
+            transition: ease-in-out .35s;
+            -moz-transition: ease-in-out .35s;
+            -webkit-transition: ease-in-out .35s;
+        }
+    /*Second Level*/
+    .hassubs .hassubs .dropdown .subs {
+        left: -70px;
+        position: relative;
+        width: 165px;
+        top: 0px;
+    }
+
+    .hassubs .hassubs .dropdown {
+        position: absolute;
+        width: 150px;
+        left: 250px;
+        top: 0px;
+        opacity: 0;
+        visibility: hidden;
+        transition: ease-out .35s;
+        -moz-transition: ease-out .35s;
+        -webkit-transition: ease-out .35s;
+    }
+</style>
