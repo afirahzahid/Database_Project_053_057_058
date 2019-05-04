@@ -34,6 +34,19 @@ namespace MobileInfo.Controllers
 
 		}
 
+		public ActionResult Index(string searching)
+		{
+			var products = from s in db.Mobiles
+						   select s;
+			if (!string.IsNullOrEmpty(searching))
+			{
+				products = products.Where(s => s.Name.Contains(searching));
+			}
+
+			return View(products.ToList());
+		}
+
+
 		[HttpGet]
 		public ActionResult AdminLogin()
 		{

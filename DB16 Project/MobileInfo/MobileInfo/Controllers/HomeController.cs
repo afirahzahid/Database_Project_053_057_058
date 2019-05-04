@@ -13,27 +13,32 @@ namespace MobileInfo.Controllers
     public class HomeController : Controller
     {
 
-        private DB16Entities db = new DB16Entities();
+		private DB16Entities db = new DB16Entities();
+		SqlConnection con1 = new SqlConnection(@"Data Source = HAIER-PC\SQLEXPRESS;initial catalog = DB16; integrated security = True");
 
-        public ActionResult Index()
-        {
-            var entities = new DB16Entities();
-            return View(entities.Brands.ToList());
-        }
+		public ActionResult Index()
+		{
+			var entities = new DB16Entities();
+			return View(entities.Brands.ToList());
+		}
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+		public ActionResult SearchIndex(string searching)
+		{
 
-            return View();
-        }
+			return View(db.Mobiles.Where(x => x.Name.Contains(searching) || searching == null).ToList());
+		}
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+		public ActionResult SearchingDetails(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Mobile m = db.Mobiles.Find(id);
+			return View(m);
+		}
 
-            return View();
-        }
+		
 
         public ActionResult blah()
         {
@@ -54,8 +59,21 @@ namespace MobileInfo.Controllers
             return View(entities.Mobiles.ToList());
         }
 
+		public ActionResult About()
+		{
+			ViewBag.Message = "Your application description page.";
 
-        public ActionResult MobileDetails(int? id)
+			return View();
+		}
+
+		public ActionResult Contact()
+		{
+			ViewBag.Message = "Your contact page.";
+
+			return View();
+		}
+
+		public ActionResult MobileDetails(int? id)
         {
             if (id == null)
             {
@@ -70,32 +88,6 @@ namespace MobileInfo.Controllers
             }
 
             return View(mobile);
-        }
-
-
-        public ActionResult MobilePictures(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            ViewBag.linkableId = id;
-            var entities = new DB16Entities();
-            return View(entities.Pictures.ToList());
-        }
-
-
-        public ActionResult MobileReviews(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            ViewBag.linkableId = id;
-            var entities = new DB16Entities();
-            return View(entities.Reviews.ToList());
         }
 
 
@@ -129,17 +121,30 @@ namespace MobileInfo.Controllers
             return View(r);
         }
 
-        public ActionResult Price200()
-        {
-            var entities = new DB16Entities();
-            return View(entities.Mobiles.ToList());
-        }
+		public ActionResult MobilePictures(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
 
-        public ActionResult Price150to199()
-        {
-            var entities = new DB16Entities();
-            return View(entities.Mobiles.ToList());
-        }
+			ViewBag.linkableId = id;
+			var entities = new DB16Entities();
+			return View(entities.Pictures.ToList());
+		}
+
+
+		public ActionResult MobileReviews(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+
+			ViewBag.linkableId = id;
+			var entities = new DB16Entities();
+			return View(entities.Reviews.ToList());
+		}
 
         public ActionResult Price100to149()
         {
@@ -159,7 +164,19 @@ namespace MobileInfo.Controllers
             return View(entities.Mobiles.ToList());
         }
 
-        public ActionResult RAM16GB()
+		public ActionResult Price200()
+		{
+			var entities = new DB16Entities();
+			return View(entities.Mobiles.ToList());
+		}
+
+		public ActionResult Price150to199()
+		{
+			var entities = new DB16Entities();
+			return View(entities.Mobiles.ToList());
+		}
+
+		public ActionResult RAM16GB()
         {
             var entities = new DB16Entities();
             return View(entities.Mobiles.ToList());
